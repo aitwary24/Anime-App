@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <!-- Using ConstraintLayout for a more flexible and modern layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <!-- ImageView for the poster with rounded corners for a softer look -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/poster_card"
+            android:layout_width="100dp"
+            android:layout_height="140dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/poster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- LinearLayout for the text content -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/poster_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.5">
+
+            <!-- Title TextView with increased font size and strong emphasis -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- Grouping episodes and score in a single horizontal layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Episodes with an icon for visual clarity -->
+                <TextView
+                    android:id="@+id/episodes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:drawableStart="@drawable/episodes"
+                    android:drawablePadding="4dp"
+                    android:layout_marginEnd="12dp"/>
+
+                <!-- Score with an icon for visual clarity -->
+                <TextView
+                    android:id="@+id/score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/pink_brand_color"
+                    android:drawableStart="@drawable/star_score"
+                    android:drawablePadding="4dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
